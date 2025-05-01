@@ -2,7 +2,6 @@ const Item = require("../Models/Item");
 const getItems = async (req, res) => {
   try {
     const items = await Item.find();
-    console.log("send")
 
     return res.status(200).json({ status: "success", data: { items } });
   } catch (err) {
