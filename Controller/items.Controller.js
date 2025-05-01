@@ -41,7 +41,7 @@ const addItem = async (req, res) => {
     const item = new Item({
       name,
       price,
-      image: `http://localhost:${process.env.PORT}/uploads/${req.file.filename}`,
+      image: `https://dashboard-task-8-backend.onrender.com/uploads/${req.file.filename}`,
       user_id: req.user._id
     });
     await item.save();
@@ -59,7 +59,7 @@ const updateItem = async (req, res) => {
       {
         name : req.body.name || oldItem.name,
         price :req.body.price ||oldItem.price ,
-        image: req.file ?`http://localhost:${process.env.PORT}/uploads/${req.file.filename}` : oldItem.image,
+        image: req.file ?`https://dashboard-task-8-backend.onrender.com/uploads/${req.file.filename}` : oldItem.image,
         user_id : oldItem.user_id
       },
       { new: true , runValidators: true }

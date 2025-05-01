@@ -33,7 +33,7 @@ const register = async (req, res) => {
       password: hashedpassword,
       password_confirmation: hashedpassword,
       user_name,
-      profile_image: `http://localhost:${process.env.PORT}/uploads/${req.file.filename}`,
+      profile_image: `https://dashboard-task-8-backend.onrender.com/uploads/${req.file.filename}`,
     });
 
     const token = jwt.sign({id: user._id, email, password }, process.env.JWT_SECRET);
