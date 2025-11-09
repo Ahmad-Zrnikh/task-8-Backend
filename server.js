@@ -8,10 +8,13 @@ const path = require("path");
 app.use(cors());
 app.use(express.json());
 require("dotenv").config();
-const itemRoutes = require("./Routes/ItemRoutes")
+// Routes
+const itemRoutes = require("./Routes/ItemRoutes");
 const userRoutes = require("./Routes/UserRoutes");
+const wishListRoutes = require("./Routes/wishListRoutes");
 app.use(userRoutes);
 app.use(itemRoutes);
+app.use("/wishlist" , wishListRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.all("*", (req, res, next) => {

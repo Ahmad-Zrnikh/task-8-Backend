@@ -34,7 +34,11 @@ const userSchema = new mongoose.Schema({
     profile_image:{
         type: String,
         required : true
-    }
+    },
+    wishList: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Item"
+    }]
 },{timestamps: true});
 
 const User = mongoose.model("User" , userSchema);
